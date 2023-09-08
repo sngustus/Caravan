@@ -31,7 +31,7 @@ h1 {
 .link-select, h1, #cardFan {
     margin-left: 15%;
     margin-right: 15%;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
@@ -51,9 +51,11 @@ h1 {
 .caravan-totals {
     display:grid;
     grid-template-columns: repeat(3, 20%);
+    align-items: center;
+    justify-content: center;
 }
 
-.caravan, .discard, .draw, .total {
+.card, .discard, .draw, .total {
     display: flex;
     flex: 1;
     height: 140px;
@@ -104,4 +106,18 @@ body {
 
 .black {
     color:black;    
+}
+
+.back {
+    height: auto;
+    width: 100%;
+}
+
+.pl {
+    cursor: pointer;
+}
+
+#play-area {
+    margin-top:100px;
+    visibility:hidden;
 }

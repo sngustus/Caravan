@@ -24,14 +24,6 @@ get numberOfCards() {
     return this.cards.length
 }
 
-pop() {
-    return this.cards.shift()
-}
-
-push(card) {
-    this.cards.push(card)
-}
-
 shuffle() {
     for (let i = this.numberOfCards - 1; i > 0; i--) {
       const newIndex = Math.floor(Math.random() * (i + 1))
@@ -41,7 +33,6 @@ shuffle() {
     }
   }
 }
-
 
 class Card {
     constructor(suit, value) {
@@ -57,9 +48,8 @@ function newDeck() {
         })
     })
 
-    //-->add an option to include/disclude jokers?
     deck.push(new Card("🃟","Joker"))//black joker
-    deck.push(new Card("🃟","Joker"))//white joker
+    deck.push(new Card("🃟","Joker"))//red joker
 
     return deck
 
