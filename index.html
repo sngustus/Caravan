@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caravan</title>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body background="./FO76_WallWood.gif" background-repeat="no-repeat" background-size="cover">
+    <div class="title-screen">
+        <h1 color="white">Caravan</h1>
+        <img id="cardFan" src="./cardFan.gif">
+        <div class="link-select">        
+            <a id="newGame" href="#">New Game<br /></a>
+            <a href="#">How to Play<br /></a>
+            <a href="#">Connect to Steam</a>
+        </div>
+        <!--<img src="./ncrMoney.jpg">-->
+    </div>
+<hr><hr>
+    <div class="play-area">
+        <div class="computer-area area">
+            <div id="s0" class="computer-caravan caravan card red" data-value="2 ♥">a</div>
+            <div id="s1" class="computer-caravan caravan card red" data-value="3 ♥">b</div>
+            <div id="s2" class="computer-caravan caravan card red" data-value="4 ♥">c</div>
+            <div id="s3" class="computer-discard discard card red" data-value="5 ♥">d</div>
+            <div id="s4" class="computer-draw draw card black" data-value="5 ♣">e</div>
+        </div>
+        <br />
+        <div class="caravan-totals">
+            <div class="total">1</div>
+            <div class="total">2</div>
+            <div class="total">3</div>
+            <div class="total">4</div>
+            <div class="total">5</div>
+            <div class="total">6</div>
+        </div>
+        <br />
+        <div class="player-area area">
+            <div id="s5" class="player-caravan caravan card red" data-value="6 ♥">f</div>
+            <div id="s6" class="player-caravan caravan card red" data-value="7 ♥">g</div>
+            <div id="s7" class="player-caravan caravan card red" data-value="8 ♥">h</div>
+            <div id="s8" class="player-discard discard card red" data-value="9 ♥">i</div>
+            <div id="s9" class="player-draw draw card black" data-value="5 ♣">j</div>
+        </div>
+
+        <div class="scoreboard"></div>
+        <div class="prompts"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+
+body {
+    background-color:#282828;
+    user-select: none;
+}
+
+a {
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 42pt;
+    color: #ffb641;
+    text-shadow: 4pt;
+}
+
+h1 {
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: 42pt;
+    text-decoration: none;
+}
+
+#cardFan {
+    width: 70%;
+}
+
+.link-select, h1, #cardFan {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.area {
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.play-area{
+    display: grid;
+    grid-template-rows: repeat(5, 20%);
+    color: #ffb641;
+}
+
+.caravan-totals {
+    display:grid;
+    grid-template-columns: repeat(3, 20%);
+}
+
+.caravan, .discard, .draw, .total {
+    display: flex;
+    flex: 1;
+    height: 140px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    gap: 1rem;
+}
+
+.card {
+    height:100%;
+    width:100%;
+    border: 1px solid black;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    background-color: white;
+    position: relative;
+}
+
+.card::before, .card::after {
+    content: attr(data-value);
+    font-size: 1rem;
+    position: absolute;
+}
+
+.card::before {
+    top: .5rem;
+    left: .5rem;
+}
+
+.card::after {
+    bottom: .5rem;
+    right: .5rem;
+    transform: rotate(180deg);
+}
+
+.red {
+    color:red;
+}
+
+.black {
+    color:black;    
+}
