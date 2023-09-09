@@ -14,7 +14,7 @@
         <img id="cardFan" src="./cardFan.gif">
         <div class="link-select">        
             <a id="newGame" href="#">New Game<br /></a>
-            <a href="#">How to Play<br /></a>
+            <a href="https://fallout.fandom.com/wiki/Caravan_(game)#Gameplay" target="_blank">How to Play<br /></a>
             <a href="#">Connect to Steam</a>
         </div>
         <!--<img src="./ncrMoney.jpg">-->
@@ -22,30 +22,31 @@
 
     <div id="play-area">
         <div class="computer-area area">
-            <div id="s0" class="card red" data-value=""><img class="back" src="img/card_back_tops.png" ></div>
-            <div id="s1" class="card red" data-value=""><img class="back" src="img/card_back_l38.png" ></div>
-            <div id="s2" class="card red" data-value=""><img class="back" src="img/card_back_tops.png" ></div>
-            <div id="s3" class="card red" data-value=""><img class="back" src="img/card_back_ul.png" ></div>
-            <div id="s4" class="card black" data-value=""><img class="back" src="img/card_back_std.png" ></div>
+            <div id="s0" class="card red" data-value=""><img class="back" draggable="false" src="img/card_back_tops.png" ></div>
+            <div id="s1" class="card red" data-value=""><img class="back" draggable="false" src="img/card_back_l38.png" ></div>
+            <div id="s2" class="card red" data-value=""><img class="back" draggable="false" src="img/card_back_tops.png" ></div>
+            <div id="s3" class="card red" data-value=""><img class="back" draggable="false" src="img/card_back_ul.png" ></div>
+            <div id="s4" class="card black" data-value=""><img class="back" draggable="false" src="img/card_back_std.png" ></div>
         </div>
         <br />
         <div class="caravan-totals">
-            <div class="total card">1</div>
-            <div class="total card">2</div>
-            <div class="total card">3</div>
-            <div class="total card">4</div>
-            <div class="total card">5</div>
-            <div class="total card">6</div>
+            <div class="pre-total total card" draggable="false">0</div>
+            <div class="pre-total total card" draggable="false">0</div>
+            <div class="pre-total total card" draggable="false">0</div>
+            <div class="pre-total total card draggable" draggable="true">0</div>
+            <div class="pre-total total card draggable" draggable="true">0</div>
+            <div class="pre-total total card draggable" draggable="true">0</div>
         </div>
         <br />
         <div class="player-area area">
-            <div id="s5" class="pl card red" data-value=""><img class="back" src="img/card_back_tops.png" ></div>
-            <div id="s6" class="pl card red" data-value=""><img class="back" src="img/card_back_ul.png" ></div>
-            <div id="s7" class="pl card red" data-value=""><img class="back" src="img/card_back_l38.png" ></div>
-            <div id="s8" class="pl card red" data-value=""><img class="back" src="img/card_back_l38.png" ></div>
-            <div id="s9" class="pl card black" data-value=""><img class="back" src="img/card_back_gom.png" ></div>
+            <div id="s5" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_tops.png" ></div>
+            <div id="s6" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_ul.png" ></div>
+            <div id="s7" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_l38.png" ></div>
+            <div id="s8" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_l38.png" ></div>
+            <div id="s9" class="pl card black draggable" data-value="" draggable="true"><img class="back" src="img/card_back_gom.png" ></div>
         </div>
-
+        <br /><div id="discard" class="discardStd">♻</div>
+        
         <div class="scoreboard"></div>
         <div class="prompts"></div>
     </div>

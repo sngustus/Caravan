@@ -26,6 +26,7 @@ h1 {
 
 #cardFan {
     width: 70%;
+    max-height: 450px;
 }
 
 .link-select, h1, #cardFan {
@@ -40,12 +41,6 @@ h1 {
     text-align: center;
     align-items: center;
     display: flex;
-}
-
-.play-area{
-    display: grid;
-    grid-template-rows: repeat(5, 20%);
-    color: #ffb641;
 }
 
 .caravan-totals {
@@ -68,10 +63,12 @@ h1 {
 body {
     margin: 0;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
-    height:100%;
+    height:150px;
     width:100%;
     border: 1px solid black;
     border-radius: .5rem;
@@ -109,7 +106,7 @@ body {
 }
 
 .back {
-    height: auto;
+    height: 140px;
     width: 100%;
 }
 
@@ -120,4 +117,52 @@ body {
 #play-area {
     margin-top:100px;
     visibility:hidden;
+    
+    align-items: center;
+    justify-content: center;
+    display: grid;
 }
+
+.back {
+    border-radius: .5rem;
+}
+
+.pre-total {
+    opacity: 50%;
+}
+
+.dragging {
+    opacity: .5;
+    background-color:cyan;
+}
+
+.drugover {
+    opacity: .75;
+    background-color: lime;
+}
+
+.total {
+    color:#ffb641;
+    background-color: slategray;
+}
+
+.total.overencumbered {
+    background-color: red;
+    color: pink;
+}
+
+.total.sold {
+    background-color: green;
+    color: chartreuse;
+}
+
+.discardStd {
+    color: antiquewhite; 
+    font-size: 70pt;
+}
+
+.discardHov {
+    font-size: 100pt;
+    color: white;
+}
+
