@@ -13,7 +13,8 @@ let cHand = deal(cDeck,0)
 let pHand = deal(pDeck,5)
 
 //--->
-console.log(pHand.length,pDeck.length)
+console.log(pHand.length)
+console.log(pDeck.length)
 
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
@@ -35,8 +36,10 @@ draggables.forEach(draggable => {
         draggable.addEventListener('drop', f => {
             var val = parseInt((document.querySelector('.dragging').dataset.value).substring(0,2))
             f.stopImmediatePropagation()
+            console.log('dragg')
 
             draggable.innerText = parseInt(draggable.innerText) + val
+            
             if (draggable.innerText > 26) {
                 draggable.classList.add('overencumbered')
                 draggable.classList.remove('sold')
@@ -45,12 +48,17 @@ draggables.forEach(draggable => {
                 draggable.classList.remove('overencumbered')
             } else {
                 draggable.classList.add('total')
+                draggable.classList.remove('pre-total')
             }
 
             //here vvv
-            document.querySelector('.dragging').dataset.value = pDeck.cards.shift().value
+            if (document.querySelector('.dragging').id) {
+                let newcard = pDeck.cards.shift()
+                document.querySelector('.dragging').dataset.value = newcard.value.concat(' ',newcard.suit)
+                document.querySelector('.dragging').innerText = newcard.suit
+            }
+
             draggable.classList.remove('drugover')
-            draggable.classList.remove('pre-total')
         })
 
         draggable.addEventListener('dragleave', () => {
@@ -59,6 +67,7 @@ draggables.forEach(draggable => {
 
     })
 })
+
 
 disc.addEventListener('dragover', ev => {
     ev.preventDefault()
@@ -72,10 +81,28 @@ disc.addEventListener('dragleave', e => {
     disc.classList.add('discardStd')
 })
 
-disc.addEventListener('drop', () => {
+disc.addEventListener('drop', e => {
+    e.stopImmediatePropagation()
     disc.classList.remove('discardHov')
     disc.classList.add('discardStd')
     //discard logic
+    let newcard = pDeck.cards.shift()
+    let item = document.querySelector('.dragging')
+
+    if (!item.id) {
+        console.log('true')
+        item.dataset.value = ""
+        item.innerText = "0"
+        item.classList.add('pre-total')
+        item.classList.add('total')
+    } else {
+        console.log('false')
+        item.dataset.value = newcard.value.concat(' ',newcard.suit)
+        item.innerText = newcard.suit
+    }
+
+    item.classList.remove('drugover')
+    
 })
 
 function startGame() {
@@ -96,9 +123,9 @@ function deal(deck, start) {
     return hand
 }
 
-//1. pop and replace card that was dragged
-//2. discard card & replace
-//3. discard caravan
+//4. cards in hands, caravans
+//5. don't let it drag and drop on itself
+//6. no drag and drop on other hands (or reorder)
 
 //caravan logic
 //winnning
@@ -118,7 +145,6 @@ function deal(deck, start) {
 
 //fix:
 //card color relative to suit
-//update suit
 //tidy up code for pre-total vs total vs drugover vs sold vs overencumbered
 
 
