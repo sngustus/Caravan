@@ -123,6 +123,15 @@ function deal(deck, start) {
     return hand
 }
 
+// remane hand ones to "hand", remove "caravan"
+// rename totals to "caravan", remove "total"
+// add totals
+// separate classes draggables and receivables
+
+
+
+
+
 //4. cards in hands, caravans
 //5. don't let it drag and drop on itself
 //6. no drag and drop on other hands (or reorder)
