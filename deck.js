@@ -38,6 +38,12 @@ class Card {
     constructor(suit, value) {
         this.suit = suit
         this.value = value
+        if (this.suit == "♠" || this.suit == "♣") {
+            this.color = "black"
+        } else if (this.suit == "♥" || this.suit == "♦") {
+            this.color = "red"
+        }
+        this.html = "<div id='s5' class='pl card draggable ".concat(this.color, " ' draggable='true' ","data-value='",(this.value.concat(' ',this.suit)),"'>",this.suit,"</div>")
     }
 }
 

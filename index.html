@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Caravan</title>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body background="./FO76_WallWood.gif" background-repeat="no-repeat" background-size="cover">
@@ -30,21 +30,15 @@
         </div>
         <br />
         <div class="caravan-totals">
-            <div class="pre-total total card" draggable="false">0</div>
-            <div class="pre-total total card" draggable="false">0</div>
-            <div class="pre-total total card" draggable="false">0</div>
-            <div class="pre-total total card draggable" draggable="true">0</div>
-            <div class="pre-total total card draggable" draggable="true">0</div>
-            <div class="pre-total total card draggable" draggable="true">0</div>
+            <div class="pre-total total card" draggable="false"></div>
+            <div class="pre-total total card" draggable="false"></div>
+            <div class="pre-total total card" draggable="false"></div>
+            <div class="pre-total total card draggable caravan" draggable="true"></div>
+            <div class="pre-total total card draggable caravan" draggable="true"></div>
+            <div class="pre-total total card draggable caravan" draggable="true"></div>
         </div>
         <br />
-        <div class="player-area area">
-            <div id="s5" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_tops.png" ></div>
-            <div id="s6" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_ul.png" ></div>
-            <div id="s7" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_l38.png" ></div>
-            <div id="s8" class="pl card red draggable" data-value="" draggable="true"><img class="back" src="img/card_back_l38.png" ></div>
-            <div id="s9" class="pl card black draggable" data-value="" draggable="true"><img class="back" src="img/card_back_gom.png" ></div>
-        </div>
+        <div id= "player-area" class="area container"></div>
         <br /><div id="discard" class="discardStd">♻</div>
         
         <div class="scoreboard"></div>

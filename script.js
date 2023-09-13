@@ -1,7 +1,4 @@
 import Deck from './deck.js'
-const draggables = document.querySelectorAll('.draggable')
-const disc = document.getElementById('discard')
-
 document.getElementById("newGame").onclick = function() {startGame()}
 
 let cDeck = new Deck()
@@ -12,10 +9,11 @@ pDeck.shuffle()
 let cHand = deal(cDeck,0)
 let pHand = deal(pDeck,5)
 
-//--->
-console.log(pHand.length)
-console.log(pDeck.length)
+const draggables = document.querySelectorAll('.draggable')
+const caravans = document.querySelectorAll('.caravan')
+const disc = document.getElementById('discard')
 
+//styles while dragging
 draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
         draggable.classList.add('dragging')
@@ -23,52 +21,35 @@ draggables.forEach(draggable => {
 
     draggable.addEventListener('dragend', () => {
         draggable.classList.remove('dragging')
-        draggable.classList.remove('drugover')
+        
     })
 })
 
-draggables.forEach(draggable => {
-    draggable.addEventListener('dragover', e => {
+//recieving caravan
+caravans.forEach(caravan => {
+    caravan.addEventListener('dragover', e => {
         e.preventDefault()
-        draggable.classList.add('drugover')
-        draggable.classList.remove('total')
-
-        draggable.addEventListener('drop', f => {
-            var val = parseInt((document.querySelector('.dragging').dataset.value).substring(0,2))
-            f.stopImmediatePropagation()
-            console.log('dragg')
-
-            draggable.innerText = parseInt(draggable.innerText) + val
-            
-            if (draggable.innerText > 26) {
-                draggable.classList.add('overencumbered')
-                draggable.classList.remove('sold')
-            } else if (draggable.innerText <=26 && draggable.innerText >= 21) {
-                draggable.classList.add('sold')
-                draggable.classList.remove('overencumbered')
-            } else {
-                draggable.classList.add('total')
-                draggable.classList.remove('pre-total')
-            }
-
-            //here vvv
-            if (document.querySelector('.dragging').id) {
-                let newcard = pDeck.cards.shift()
-                document.querySelector('.dragging').dataset.value = newcard.value.concat(' ',newcard.suit)
-                document.querySelector('.dragging').innerText = newcard.suit
-            }
-
-            draggable.classList.remove('drugover')
-        })
-
-        draggable.addEventListener('dragleave', () => {
-            draggable.classList.remove('drugover')
-        })
-
+        caravan.classList.add('drugover')
+        caravan.classList.remove('total')
     })
+
+    caravan.addEventListener('drop', f => {
+        let drag = document.querySelector('.dragging')
+
+        f.stopImmediatePropagation()
+        
+        addToCaravan(caravan)
+
+        caravan.classList.remove('drugover')
+    })
+
+    caravan.addEventListener('dragleave', () => {
+        caravan.classList.remove('drugover')
+    })
+
 })
 
-
+//discard styles
 disc.addEventListener('dragover', ev => {
     ev.preventDefault()
     disc.classList.add('discardHov')
@@ -81,6 +62,7 @@ disc.addEventListener('dragleave', e => {
     disc.classList.add('discardStd')
 })
 
+//discard logic
 disc.addEventListener('drop', e => {
     e.stopImmediatePropagation()
     disc.classList.remove('discardHov')
@@ -92,7 +74,6 @@ disc.addEventListener('drop', e => {
     if (!item.id) {
         console.log('true')
         item.dataset.value = ""
-        item.innerText = "0"
         item.classList.add('pre-total')
         item.classList.add('total')
     } else {
@@ -105,28 +86,38 @@ disc.addEventListener('drop', e => {
     
 })
 
+//change screens on start
 function startGame() {
     document.getElementById("title-screen").style.display = 'none'
     document.getElementById("play-area").style.visibility = 'visible'
 }
 
+//initiate cards
 function deal(deck, start) {
     //start 0 for Computer and 5 for Player
     let hand = []
     for (let i = 0 ; i < 5; i++) {
         if (start==5) {
-            document.getElementById("s".concat(i+start)).innerText = deck.cards[0].suit
-            document.getElementById("s".concat(i+start)).dataset.value = deck.cards[0].value.concat(" ", deck.cards[0].suit)
+            document.getElementById("player-area").innerHTML += deck.cards[0].html
         }
         hand.push(deck.cards.shift())
     }
     return hand
 }
 
-// remane hand ones to "hand", remove "caravan"
-// rename totals to "caravan", remove "total"
+//add card object as param here?
+function addToCaravan (caravan) {
+    let cardToAdd = document.querySelector('.dragging')
+    caravan.innerHTML += cardToAdd.innerHTML        
+
+    //replace with new card
+    let newcard = pDeck.cards.shift()
+    document.getElementById('player-area').innerHTML += (newcard.html)
+}
+
+// pass cards around, display by using html
 // add totals
-// separate classes draggables and receivables
+// worry about styles after
 
 
 
