@@ -9,6 +9,7 @@ pDeck.shuffle()
 let cHand = deal(cDeck,0)
 let pHand = deal(pDeck,5)
 
+//these need to be after deal, so dealt cards get read
 const draggables = document.querySelectorAll('.draggable')
 const caravans = document.querySelectorAll('.caravan')
 const disc = document.getElementById('discard')
@@ -72,12 +73,10 @@ disc.addEventListener('drop', e => {
     let item = document.querySelector('.dragging')
 
     if (!item.id) {
-        console.log('true')
         item.dataset.value = ""
         item.classList.add('pre-total')
         item.classList.add('total')
     } else {
-        console.log('false')
         item.dataset.value = newcard.value.concat(' ',newcard.suit)
         item.innerText = newcard.suit
     }
@@ -108,7 +107,8 @@ function deal(deck, start) {
 //add card object as param here?
 function addToCaravan (caravan) {
     let cardToAdd = document.querySelector('.dragging')
-    caravan.innerHTML += cardToAdd.innerHTML        
+    caravan.innerHTML = cardToAdd.innerText
+    caravan.dataset.value = cardToAdd.dataset.value         
 
     //replace with new card
     let newcard = pDeck.cards.shift()
@@ -119,20 +119,14 @@ function addToCaravan (caravan) {
 // add totals
 // worry about styles after
 
+//cards in hands, caravans
+//caravan holding logic
 
 
-
-
-//4. cards in hands, caravans
-//5. don't let it drag and drop on itself
-//6. no drag and drop on other hands (or reorder)
-
-//caravan logic
 //winnning
-//-compiling cards that have been played there
-//-directions
-//-no duplicates in a row
-//- A = 1
+//caravan logic - directions
+//caravan logic - no duplicates in a row
+//card value - A = 1
 
 //power ups
 //-queen = reverses direction and changes suit
@@ -144,7 +138,6 @@ function addToCaravan (caravan) {
 //turns & computer moves
 
 //fix:
-//card color relative to suit
 //tidy up code for pre-total vs total vs drugover vs sold vs overencumbered
-
+//discard logic
 
