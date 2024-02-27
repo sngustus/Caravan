@@ -8,6 +8,7 @@ pDeck.shuffle()
 
 let cHand = deal(cDeck,0)
 let pHand = deal(pDeck,5)
+console.log(pHand)
 
 //these need to be after deal, so dealt cards get read
 const draggables = document.querySelectorAll('.draggable')
