@@ -44,7 +44,6 @@ export class Card {
         } else if (this.suit == "♥" || this.suit == "♦") {
             this.color = "red"
         }
-        this.html = "<div id='s5' class='pl card draggable ".concat(this.color, " ' draggable='true' ","data-value='",(this.text.concat(' ',this.suit)),"'>",this.suit,"</div>")
         this.attached = [];
         this.score = 0;
         this.determineScore()
@@ -81,7 +80,7 @@ export class Caravan {
         if (this.total < 21) {
             this.status = 'unsold';
         } else if (this.total > 26) {
-            this.status = 'overburdened';
+            this.status = 'overencumbered';
         } else {
             if (this.total < enemyTotal) {
                 this.status = 'outbid';

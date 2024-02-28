@@ -127,10 +127,6 @@ body {
     border-radius: .5rem;
 }
 
-.pre-total {
-    opacity: 50%;
-}
-
 .dragging {
     opacity: .5;
     background-color:cyan;
@@ -146,12 +142,12 @@ body {
     background-color: slategray;
 }
 
-.total.overencumbered {
+.overencumbered {
     background-color: red;
     color: pink;
 }
 
-.total.sold {
+.sold {
     background-color: green;
     color: chartreuse;
 }
