@@ -1,4 +1,4 @@
-import Deck from './deck.js'
+ 
 document.getElementById("newGame").onclick = function() {startGame()}
 
 let cDeck = new Deck()
@@ -133,8 +133,8 @@ function addToCaravan (caravan) {
 //-queen = reverses direction and changes suit
 //-kings - played on a 9 adds 9 (4+K+K = 16)
 //-jacks - removes that card, plus face cards attached to it
-//-jokers on #s
-//-jokers on As
+//-jokers on #s - removes all OTHER of same #
+//-jokers on As - removes all OTHER of same suit (except face cards)
 
 //turns & computer moves
 

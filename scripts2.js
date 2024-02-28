@@ -1,4 +1,4 @@
-import Deck from './deck.js'
+import Deck from './Objects.js'
 
 //figure out how to do this in HTML
 document.getElementById("newGame").onclick = function() {startGame()}
